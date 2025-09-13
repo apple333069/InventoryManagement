@@ -2,7 +2,7 @@
   
   <main class="flex-1 p-6">
     <div
-      class="bg-[url(@/assets/bg.png)] text-white p-6 rounded-lg shadow-md"
+      class="bg-[url(@/assets/bg.png)] bg-cover bg-center bg-no-repeat text-white text-center p-6 rounded-lg shadow-md"
     >
       <h1 class="text-2xl text-gray-500 font-bold">進銷存</h1>
     </div>

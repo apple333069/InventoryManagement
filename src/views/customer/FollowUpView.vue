@@ -1,7 +1,7 @@
 <template>
   <!-- 跟進紀錄 -->
   <main class="flex flex-col space-y-4">
-    <el-row class="p-3 bg-white rounded-md shadow">
+    <el-row class="p-3 bg-white rounded-md shadow flex justify-end md:justify-start">
       <el-col :span="5">
         <!-- 下拉選單 -->
         <el-select v-model="selectedOption" placeholder="請選擇">

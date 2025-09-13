@@ -1,0 +1,1 @@
+import{b as t,d as r,e as s,v as a}from"./index-DuMLqF1m.js";const o={class:"bg-[url(@/assets/bg2.png)] bg-cover bg-center bg-no-repeat text-white text-center p-6 rounded-lg shadow-md"},n={class:"text-2xl text-gray-400 font-bold"},l={__name:"HeaderBar",props:{title:{type:String,required:!0}},setup(e){return(c,d)=>(r(),t("div",o,[s("div",n,a(e.title),1)]))}};export{l as _};

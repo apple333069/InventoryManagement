@@ -1,7 +1,9 @@
 <template>
+	<!-- 桌面版側邊欄 -->
 	<aside
+		v-if="!isMobile"
 		:class="[
-			'bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto z-10 transition-width duration-300',
+			'bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto z-10 transition-all duration-300',
 			isCollapse ? 'w-20' : 'w-64',
 		]"
 	>
@@ -24,7 +26,11 @@
 			</template>
 		</el-input>
 		<!-- 菜單 -->
-		<el-menu default-active="首頁" router :collapse="isCollapse">
+		<el-menu 
+			default-active="首頁" 
+			router 
+			:collapse="isCollapse"
+		>
 			<template v-for="item in menuItems" :key="item.label">
 				<el-sub-menu v-if="item.children" :index="item.label">
 					<template #title>
@@ -66,10 +72,108 @@
 			</template>
 		</el-menu>
 	</aside>
+
+	<!-- 手機版下拉菜單 -->
+	<div v-if="isMobile" class="md:hidden">
+		<el-dropdown 
+			@visible-change="handleDropdownVisibleChange"
+			trigger="click"
+			placement="bottom-start"
+		>
+			<el-button circle class="bg-white shadow-md">
+				<i class="ri-menu-line text-gray-600 text-xl"></i>
+			</el-button>
+			<template #dropdown>
+				<el-dropdown-menu class="max-h-96 overflow-y-auto">
+					<template v-for="item in menuItems" :key="item.label">
+						<template v-if="item.children">
+							<el-dropdown-item disabled class="font-bold text-gray-900">
+								<i :class="item.iconClass" class="pr-2"></i>
+								{{ item.label }}
+							</el-dropdown-item>
+							<template v-for="child in item.children" :key="child.label">
+								<template v-if="child.children">
+									<el-dropdown-item disabled class="font-semibold text-gray-800 pl-6">
+										{{ child.label }}
+									</el-dropdown-item>
+									<el-dropdown-item 
+										v-for="grandChild in child.children"
+										:key="grandChild.label"
+										@click="navigateTo(grandChild.path)"
+										class="pl-8"
+									>
+										<i
+											:class="grandChild.iconClass"
+											:style="{ color: grandChild.color }"
+											class="pr-2"
+										></i>
+										{{ grandChild.label }}
+									</el-dropdown-item>
+								</template>
+								<el-dropdown-item v-else @click="navigateTo(child.path)" class="pl-6">
+									<i
+										:class="child.iconClass"
+										:style="{ color: child.color }"
+										class="pr-2"
+									></i>
+									{{ child.label }}
+								</el-dropdown-item>
+							</template>
+							<el-dropdown-item divided></el-dropdown-item>
+						</template>
+						<el-dropdown-item v-else @click="navigateTo(item.path)">
+							<i :class="item.iconClass" class="pr-2"></i>
+							{{ item.label }}
+						</el-dropdown-item>
+					</template>
+				</el-dropdown-menu>
+			</template>
+		</el-dropdown>
+	</div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 const isCollapse = ref(false);
+const isMobile = ref(false);
+
+// 檢測是否為手機版
+const checkMobile = () => {
+	isMobile.value = window.innerWidth < 768;
+};
+
+// 監聽螢幕大小變化
+const handleResize = () => {
+	checkMobile();
+};
+
+// 手機版下拉菜單導航
+const navigateTo = (path) => {
+	if (path) {
+		router.push(path);
+	}
+};
+
+// 處理下拉菜單顯示狀態變化
+const handleDropdownVisibleChange = (visible) => {
+	// 可以在這裡處理下拉菜單的顯示/隱藏邏輯
+};
+
+onMounted(() => {
+	checkMobile();
+	window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+	window.removeEventListener('resize', handleResize);
+});
+
+// 暴露給父組件的方法（保持兼容性）
+defineExpose({
+	toggleMobileMenu: () => {}
+});
 const menuItems = ref([
 	{ label: '首頁', iconClass: 'ri-home-5-line', path: '/' },
 	{

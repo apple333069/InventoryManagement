@@ -1,5 +1,50 @@
-# Vue 3 + Vite
+# Inventory Management System
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一個基於 Vue 3 + Vite 開發的現代化庫存管理系統，提供直觀易用的界面來管理商品庫存。目前只為靜態展示。
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## 技術棧
+
+- **前端框架**: Vue 3
+- **構建工具**: Vite
+- **開發語言**: JavaScript
+- **UI 組件**: Element Plus
+- **路由管理**: Vue Router
+
+## 展示頁面
+
+### 首頁
+
+### 經營看板
+- 庫存統計
+- 倉庫經營
+- 銷售訂單
+- 財務收支
+
+### 基礎數據
+- 產地資料
+- 產品分類
+- 產品資料
+- 產品銷售價格
+- 產品列表
+- 倉庫資料
+- 倉位資料
+
+### 客戶管理
+- 客戶資料
+- 跟進紀錄
+- 客戶分析
+
+### 銷售管理
+- 報價單
+- 銷售訂單
+- 銷售出庫
+- 銷售退貨
+- 銷售換貨
+- 銷售統計
+
+### 庫存管理
+- 入庫管理
+- 出庫管理
+- 庫存調整
+- 庫存盤點
+- 產品出入庫統計
