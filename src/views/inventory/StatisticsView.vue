@@ -91,8 +91,8 @@
 				<!-- 銷售毛利分析 -->
 				<el-tab-pane label="產品入庫明細" name="2">
 					<!-- 數據區塊 -->
-					<div class="grid grid-cols-2 xl:grid-cols-5 gap-6 pb-8">
-						<div class="col-span-3 grid grid-cols-3 gap-4">
+					<div class="grid grid-cols-2 xl:grid-cols-5 gap-y-6 md:gap-6 pb-8">
+						<div class="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 							<StatisticCard
 								v-for="(stat, index) in statisticsA"
 								:key="index"
@@ -243,8 +243,8 @@
 				<!-- 產品出庫明細 -->
 				<el-tab-pane label="產品出庫明細" name="4">
 					<!-- 數據區塊 -->
-					<div class="grid grid-cols-2 xl:grid-cols-5 gap-6 pb-8">
-						<div class="col-span-3 grid grid-cols-3 gap-4">
+					<div class="grid grid-cols-2 xl:grid-cols-5 gap-y-6 md:gap-6 pb-8">
+						<div class="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 							<StatisticCard
 								v-for="(stat, index) in statisticsB"
 								:key="index"
@@ -314,8 +314,8 @@
 				<!-- 客戶銷量統計 -->
 				<el-tab-pane label="產品調撥統計" name="5">
 					<!-- 數據區塊 -->
-					<div class="grid grid-cols-2 xl:grid-cols-5 gap-6 pb-8">
-						<div class="col-span-3 grid grid-cols-3 gap-4">
+					<div class="grid grid-cols-2 xl:grid-cols-5 gap-y-6 md:gap-6 pb-8">
+						<div class="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
 							<StatisticCard
 								v-for="(stat, index) in statisticsC"
 								:key="index"

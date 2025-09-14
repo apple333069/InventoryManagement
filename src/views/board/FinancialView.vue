@@ -10,14 +10,14 @@
         <el-tab-pane label="收款統計" name="1">
           <!-- 數據區塊 -->
           <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pb-8">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <StatisticCard
                 v-for="(stat, index) in statisticsA"
                 :key="index"
                 :title="stat.title"
                 :value="stat.value"
               />
-              <div class="col-span-3">
+              <div class="col-span-1 md:col-span-3">
                 <LineChart
                   title="應收帳款金額趨勢"
                   :xAxisData="['2023年05月', '2023年06月', '2023年07月', '2023年08月', '2023年09月', '2024年07月']"
@@ -25,14 +25,14 @@
                 />
               </div>
             </div>
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <StatisticCard
                 v-for="(stat, index) in statisticsB"
                 :key="index"
                 :title="stat.title"
                 :value="stat.value"
               />
-              <div class="col-span-3">
+              <div class="col-span-1 md:col-span-3">
                 <LineChart
                   title="收款金額趨勢"
                   :xAxisData="xAxisDataB"
@@ -77,14 +77,14 @@
         <el-tab-pane label="付款統計" name="2">
           <!-- 數據區塊 -->
           <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pb-8">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <StatisticCard
                 v-for="(stat, index) in statisticsC"
                 :key="index"
                 :title="stat.title"
                 :value="stat.value"
               />
-              <div class="col-span-3">
+              <div class="col-span-1 md:col-span-3">
                 <LineChart
                   title="應付帳款金額趨勢"
                   :xAxisData="['2023年05月', '2023年06月', '2023年07月', '2023年08月', '2023年09月', '2024年07月']"
@@ -92,14 +92,14 @@
                 />
               </div>
             </div>
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <StatisticCard
                 v-for="(stat, index) in statisticsD"
                 :key="index"
                 :title="stat.title"
                 :value="stat.value"
               />
-              <div class="col-span-3">
+              <div class="col-span-1 md:col-span-3">
                 <LineChart
                   title="付款金額趨勢"
                   :xAxisData="xAxisDataB" :seriesData="seriesDataB" baseColor="#69b2ea"

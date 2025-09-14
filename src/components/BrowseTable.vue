@@ -121,6 +121,7 @@
 			v-model="dialogVisible"
 			v-model:visible="dialogVisible"
 			width="40%"
+			:fullscreen="isMobile"
 			center
 			@close="resetDialog"
 		>
@@ -215,6 +216,8 @@ const props = defineProps({
 		}),
 	},
 });
+
+const isMobile = computed(() => window.innerWidth < 768)
 const currentPage = ref(3);
 const pageSize = ref(10);
 const size = ref('default');

@@ -23,14 +23,14 @@
           </div>
           <!-- 數據區塊 -->
           <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pb-8">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <StatisticCard
                 v-for="(stat, index) in statisticsA"
                 :key="index"
                 :title="stat.title"
                 :value="stat.value"
               />
-              <div class="col-span-3">
+              <div class="col-span-1 md:col-span-3">
                 <LineChart
                   title="出入庫數量趨勢"
                   :xAxisData="['2023年05月', '2023年06月', '2023年07月', '2023年08月', '2023年09月', '2024年07月']"
